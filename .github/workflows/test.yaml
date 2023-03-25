@@ -1,0 +1,16 @@
+name: git test
+on: push 
+jobs: 
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: install python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: install dependencies
+        run: pip install -r requirments.txt
+      - name: run tests
+        run: python3 -m unittest test/test_main.py
