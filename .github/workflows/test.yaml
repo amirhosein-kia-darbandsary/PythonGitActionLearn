@@ -14,3 +14,15 @@ jobs:
         run: pip install -r requirments.txt
       - name: run tests
         run: python3 -m unittest tests/test_main.py
+
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: install python 
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.11'
+      - name: deploy project 
+        run: echo "Deploying has started"
