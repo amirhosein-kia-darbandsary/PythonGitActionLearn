@@ -16,6 +16,7 @@ jobs:
         run: python3 -m unittest tests/test_main.py
 
   deploy:
+    needs: [test]
     runs-on: ubuntu-22.04
     steps:
       - name: get code
