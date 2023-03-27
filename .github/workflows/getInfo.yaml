@@ -1,8 +1,8 @@
 name: get meta data workflow
-on: [push]
+on: [workflow_dispatch]
 jobs:
   info:
     runs-on: ubuntu-22.04
     steps:
       -name: got name from github context
-       run: echo "${{toJSON(github)}}"
+       run: echo '${{ toJSON(github) }}'
