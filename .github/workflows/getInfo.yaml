@@ -1,0 +1,8 @@
+name: get meta data workflow
+on: [push]
+jobs:
+  info:
+    runs-on: ubuntu-22.04
+    steps:
+      -name: got name from github context
+       run: echo "${{github}}"
