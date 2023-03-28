@@ -25,4 +25,4 @@ jobs:
     needs : [test]
     steps:
       - name : depolyment
-        run : echo "deployment has completed . "
+        run : echo "deployment has completed ?"
