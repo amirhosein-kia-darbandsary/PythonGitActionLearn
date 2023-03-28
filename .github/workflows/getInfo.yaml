@@ -1,8 +1,28 @@
-name: get meta data workflow
-on: workflow_dispatch
+name : Trigger Test 
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    types:
+      - opened
+
 jobs:
-  info:
+  test:
     runs-on: ubuntu-22.04
     steps:
-      - name: got name from github context
-        run: echo '${{ toJSON(github.event.issue) }}'
+      - name : get the code 
+        uses : actions/checkout@v3
+      - name : install suitable python 
+        uses : actions/setup-python@v4
+        with :
+          python-version: '3.11'
+      - name : run the test 
+        run  : python3.11 -m unittest tests/test_main.py
+  
+  depoly:
+    runs-on : ubuntu-22.04
+    needs : [test]
+    steps:
+      - name : depolyment
+        run : echo "deployment has completed . "
