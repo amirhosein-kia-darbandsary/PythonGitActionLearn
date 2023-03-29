@@ -16,10 +16,10 @@ jobs:
         - name : run the test 
           run  : python3 -m unittest source/main.py
         - name : Upload Artifacts 
-          uses : actions/upload-artifacts@v3
+          uses : actions/upload-artifact@v3
             with:
               name: save the first artifact that has contain log files
-              path: dist/
+              path: dist
 
     depeloy:
       runs-on: ubunto-22.04
