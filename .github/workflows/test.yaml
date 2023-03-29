@@ -22,7 +22,7 @@ jobs:
 
           with :
             name: dist-facts
-            path: dist
+            path: dist/log.txt
 
     depeloy:
       runs-on: ubunto-22.04
