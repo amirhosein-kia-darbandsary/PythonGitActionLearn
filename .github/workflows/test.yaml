@@ -13,10 +13,13 @@ jobs:
           uses : actions/setup-python@v3
           with : 
             python-version: "3.11"
+
         - name : run the test 
           run  : python3 -m unittest source/main.py
+
         - name : Upload Artifacts 
           uses : actions/upload-artifact@v3
+          
           with :
             name: dist-facts
             path: dist
