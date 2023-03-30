@@ -15,14 +15,14 @@ jobs:
             python-version: "3.11"
 
         - name : run the test 
-          run  : python3 -m unittest source/main.py
+          run  : python3 -m unittest tests/test_main.py
 
         - name : Upload Artifacts 
           uses : actions/upload-artifact@v3
 
           with :
             name: dist-facts
-            path: githubaction/logs
+            path: logs
 
     depeloy:
       runs-on: ubunto-22.04
