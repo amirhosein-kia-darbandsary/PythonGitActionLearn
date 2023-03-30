@@ -1,7 +1,7 @@
 def main():
     answre = 2 + 2
-    with open('./dist/log.txt'  , 'w') as f:
-        f.write("this is a log test")
+    with open('./logs/log.txt'  , 'w') as f:
+        f.write("mew mew niga")
         f.close()
     return answre
 
