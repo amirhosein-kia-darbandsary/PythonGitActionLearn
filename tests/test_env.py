@@ -7,6 +7,6 @@ class TestEnv(unittest.TestCase):
         name = read_logger_name()
         expected =  os.environ['USER_GIT']
         print(os.environ['TESTING_PACKAGE'])
-        self.assertEqual(name,)
+        self.assertEqual(name,expected)
 
 
