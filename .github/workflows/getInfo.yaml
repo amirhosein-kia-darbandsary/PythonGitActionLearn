@@ -4,8 +4,8 @@ on :
     branches:
       - "master"
 
-# env:
-  # TESTING_PACKAGE
+env:
+  TESTING_PACKAGE: 'UnitTesting'
 
 jobs:
 
@@ -39,3 +39,10 @@ jobs:
       steps:
         - name : deploy
           run  : echor "Deploying ....."
+
+        - name : got information 
+          run  : | 
+           echo "${{ env.TESTING_PACKAGE }}"
+        - name : got information 2
+          run : |  
+            echo " $TESTING_PACKAGE "
