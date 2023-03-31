@@ -38,7 +38,7 @@ jobs:
       needs : [test]
       steps:
         - name : deploy
-          run  : echor "Deploying ....."
+          run  : echo  "Deploying ....."
 
         - name : got information 
           run  : | 
