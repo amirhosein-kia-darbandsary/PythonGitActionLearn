@@ -12,7 +12,7 @@ jobs:
     test:
       runs-on: ubuntu-22.04
       env:
-        USER_GIT: 'amirhosien'
+        USER_GIT: 'runner'
       steps:
         - name : 'get the code'
           uses : actions/checkout@v3
