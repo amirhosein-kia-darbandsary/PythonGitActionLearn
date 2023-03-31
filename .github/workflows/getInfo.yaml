@@ -11,6 +11,8 @@ jobs:
 
     test:
       runs-on: ubuntu-22.04
+      env:
+        USER_GIT: 'amirhosien'
       steps:
         - name : 'get the code'
           uses : actions/checkout@v3
@@ -19,12 +21,12 @@ jobs:
           uses : actions/setup-python@v3
           with :
             python-version: '3.11'
-            catch : 'pip'
+            cache : 'pip'
         - name : install dependencies 
           run  : pip install -r requirments.txt
         
         - name : run the test
-          run  : python3 -m unittest tests/test_main.py
+          run  : python3 -m unittest tests/test_env.py
         
         - name : upload artifacts
           uses : actions/upload-artifact@v3
