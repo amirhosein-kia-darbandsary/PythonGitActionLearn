@@ -1,28 +1,40 @@
-name : Trigger Test 
-on:
+name : second workflow
+on : 
   push:
     branches:
       - "master"
-  pull_request:
-    types:
-      - opened
+
+# env:
+  # TESTING_PACKAGE
 
 jobs:
-  test:
-    runs-on: ubuntu-22.04
-    steps:
-      - name : get the code 
-        uses : actions/checkout@v3
-      - name : install suitable python 
-        uses : actions/setup-python@v4
-        with :
-          python-version: '3.11'
-      - name : run the test 
-        run  : python3.11 -m unittest tests/test_main.py
-  
-  depoly:
-    runs-on : ubuntu-22.04
-    needs : [test]
-    steps:
-      - name : depolyment
-        run : echo "deployment has completed ?"
+
+    test:
+      runs-on: ubuntu.22-04
+      steps:
+        - name : 'get the code'
+          uses : actions/checkout@v3
+        
+        - name : install python 
+          uses : actions/setup-python@v3
+          with :
+            python-version: '3.11'
+            catch : 'pip'
+        - name : install dependencies 
+          run  : pip install -r requirements.txt
+        
+        - name : python3 -m unittest tests/test_main.py
+        
+        - name : upload artifacts
+          uses : actions/upload-artifact@v3
+          with : 
+            name: artifacats-log
+            path: logs
+
+
+    deploy:
+      runs-on: ubuntu-22.04
+      needs : [test]
+      steps:
+        - name : deploy
+          run  : echor "Deploying ....."
