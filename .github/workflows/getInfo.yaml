@@ -27,7 +27,7 @@ jobs:
         
         - name : run the test
           id    : test-run
-          run  : python3 -m unittest tests/test_env.py
+          run  : python3 -m unittest tests/test_e
 
         
         - name : upload artifacts
