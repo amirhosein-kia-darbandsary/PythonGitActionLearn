@@ -26,9 +26,12 @@ jobs:
           run  : pip install -r requirements.txt
         
         - name : run the test
+          id    : test-run
           run  : python3 -m unittest tests/test_env.py
+
         
         - name : upload artifacts
+          if   : failure() && steps.test-run.outcome == 'failure'
           uses : actions/upload-artifact@v3
           with : 
             name: artifacats-log
