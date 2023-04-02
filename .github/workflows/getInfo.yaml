@@ -9,7 +9,7 @@ env:
 
 jobs:
     test:
-      continue-on-error: true
+      # continue-on-error: true
       strategy: 
         matrix:
           operating-system: [ubuntu-22.04 , ubuntu-latest]
@@ -62,7 +62,7 @@ jobs:
       runs-on: ubuntu-22.04
       steps:
       - name: "Build our module"
-        run:  ech "Building has started"
+        run:  echo "Building has started"
 
 
     dockerizing: 
