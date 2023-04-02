@@ -8,9 +8,13 @@ env:
   TESTING_PACKAGE: 'UnitTesting'
 
 jobs:
-
     test:
-      runs-on: ubuntu-22.04
+      continue-on-error: true
+      strategy: 
+        matrix:
+          operating-system: [ubuntu-22.04 , ubuntu-latest]
+          python-versions: ["3.10" , '3.11']
+      runs-on: ${{ matrix.operating-system }}
       env:
         USER_GIT: 'runner'
       steps:
@@ -20,7 +24,7 @@ jobs:
         - name : install python 
           uses : actions/setup-python@v3
           with :
-            python-version: '3.11'
+            python-version: ${{ matrix.python-versions}}
             cache : 'pip'
         - name : install dependencies 
           run  : pip install -r requirements.txt
