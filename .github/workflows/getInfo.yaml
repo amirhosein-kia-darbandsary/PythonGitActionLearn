@@ -48,7 +48,7 @@ jobs:
 
         - name : got information 
           run  : | 
-           echo "${{ env.TESTING_PACKAGE }}"
+           echo "${{ env.TESTING_PACKAGE }} "
         - name : got information 2
           run : |  
             echo " $TESTING_PACKAGE "
@@ -58,12 +58,13 @@ jobs:
       runs-on: ubuntu-22.04
       steps:
       - name: "Build our module"
-        run:  "Building has started"
+        run:  ech "Building has started"
 
 
     dockerizing: 
       runs-on: ubuntu-22.04
       needs: [deploy , build]
+      if: failure()
       steps:
         - name : build image
           run : echo "Runing our docker "
