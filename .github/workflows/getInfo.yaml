@@ -41,6 +41,7 @@ jobs:
     deploy:   
       runs-on: ubuntu-22.04
       needs : [test]
+      if: failure()
       steps:
         - name : deploy
           run  : echo  "Deploying ....."
