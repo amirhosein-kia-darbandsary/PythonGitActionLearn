@@ -52,3 +52,20 @@ jobs:
         - name : got information 2
           run : |  
             echo " $TESTING_PACKAGE "
+
+
+    build:
+      runs-on: ubuntu-22.04
+      steps:
+      - name: "Build our module"
+        run:  "Building has started"
+
+
+    dockerizing: 
+      runs-on: ubuntu-22.04
+      needs: [deploy , build]
+      steps:
+        - name : build image
+          run : echo "Runing our docker "
+
+    
