@@ -31,7 +31,7 @@ jobs:
         
         - name : run the test
           id    : test-run
-          run  : python3 -m unittest tests/test_e
+          run  : python3 -m unittest tests/test_main.py
 
         
         - name : upload artifacts
@@ -52,17 +52,14 @@ jobs:
 
         - name : got information 
           run  : | 
-           echo "${{ env.TESTING_PACKAGE }} "
+           echo "${{ env.TESTING_PACKAGE }} "|  
         - name : got information 2
-          run : |  
-            echo " $TESTING_PACKAGE "
+          run :  | 
+           echo " $TESTING_PACKAGE "
 
 
     build:
-      runs-on: ubuntu-22.04
-      steps:
-      - name: "Build our module"
-        run:  echo "Building has started"
+      uses: ./.github/workflows/useable.yaml
 
 
     dockerizing: 
