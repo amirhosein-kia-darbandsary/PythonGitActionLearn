@@ -45,7 +45,7 @@ jobs:
     deploy:   
       runs-on: ubuntu-22.04
       needs : [test]
-      if: failure()
+      # if: failure()
       steps:
         - name : deploy
           run  : echo  "Deploying ....."
@@ -65,7 +65,7 @@ jobs:
     dockerizing: 
       runs-on: ubuntu-22.04
       needs: [deploy , build]
-      if: failure()
+      # if: failure() 
       steps:
         - name : build image
           run : echo "Runing our docker "
