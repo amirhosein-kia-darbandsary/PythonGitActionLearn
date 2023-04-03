@@ -1,6 +1,7 @@
 name: useable workfow
-on: workflow_call
-
+on: 
+  workflow_call:
+  
 jobs:
   deploy:
     runs-on: ubuntu-22.4
