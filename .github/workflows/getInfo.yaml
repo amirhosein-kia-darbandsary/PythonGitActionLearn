@@ -52,7 +52,7 @@ jobs:
 
         - name : got information 
           run  : | 
-           echo "${{ env.TESTING_PACKAGE }} "|  
+           echo "${{ env.TESTING_PACKAGE }} "
         - name : got information 2
           run :  | 
            echo " $TESTING_PACKAGE "
